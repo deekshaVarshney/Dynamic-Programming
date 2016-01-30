@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.Scanner;
+import java.util.Arrays;
+class prog
+{
+ public static void main (String args[]) throws IOException
+ {
+int n,i,j,k,largest;
+ Scanner in = new Scanner(System.in) ;
+String str;
+str=in.next();
+int l1=str.length();
+String dic[]={"I","am","ace"};
+int a[][]=new int[l1][l1];
+
+for(int l=1;l<=l1;l++)
+	{
+	  for(i=0;i<l1-l+1;i++)
+	   {
+ 	j=i+l-1;
+String st=str.substring(i,j+1);
+for(int o=0;o<dic.length;o++){
+if(dic[o]==(st)){
+a[i][j]=i;
+continue;
+}
+}
+for(k=i+1;k<=j;k++)
+{
+if(a[i][k-1]!=-1&&a[k][j]!=-1)
+a[i][j]=k;
+break;
+}
+
+}
+}
+
+for(i=0;i<l1;i++){
+for(j=0;j<l1;j++){
+System.out.print(a[i][j]);
+}
+System.out.println();
+}
+
+
+
+
+
+
+}}
