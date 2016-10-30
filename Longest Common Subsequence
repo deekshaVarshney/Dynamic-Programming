@@ -10,8 +10,15 @@ int max(int a, int b)
   
 int lcs( int X[], int Y[], int m, int n )
 {
+    int i, j;
+  /*  for(i=0;i<n;i++)
+printf("%d",X[i]);
+    printf("\n");
+for(i=0;i<m;i++)
+printf("%d",Y[i]);*/
+
    int L[m+1][n+1];
-   int i, j;
+   
   
    /* Following steps build L[m+1][n+1] in bottom up fashion. Note 
       that L[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1] */
@@ -35,23 +42,23 @@ int lcs( int X[], int Y[], int m, int n )
 }
 int main()
     {
-int m,n;
+int m,n,i;
   
    scanf("%d %d",&n,&m);
  int P[m],T[n];
 
-
-scanf("%d",T);
-
-scanf("%d",P);
+for(i=0;i<n;i++)
+scanf("%d",&T[i]);
+for(i=0;i<m;i++)
+scanf("%d",&P[i]);
 
 
 
 
  /*char *T = "ABABDABACDABABCABAB";
    char *P = "ABABCABAB";*/
-lcs(T,P,m,n); 
-
+int l=lcs(T,P,m,n); 
+printf("%d",l);
 return 0;
     	
 }
