@@ -8,7 +8,7 @@ int max(int a, int b)
     return (a > b)? a : b;
 }
   
-int lcs( int X[], int Y[], int m, int n )
+void lcs( int X[], int Y[], int m, int n )
 {
     int i, j;
   /*  for(i=0;i<n;i++)
@@ -36,9 +36,34 @@ printf("%d",Y[i]);*/
          L[i][j] = max(L[i-1][j], L[i][j-1]);
      }
    }
+    int index=L[m][n];
     
+int p=index-1;
+int lcss[index];
+    i=n;j=m;
+//printf("index%d p%d lcss[index]%d i%d j%d",index,p,lcss[index],i,j);
+while(p>=0){
+    if(X[i-1]==Y[j-1]){
+        lcss[p]=X[i-1];
+        i--;
+        j--;
+        p--; 
+    }
+    else if(L[i-1][j]>L[i][j-1]){
+        i--;
+    }
+    else{
+        j--;
+    }
+
+
+
+}
+    for(int k=0;k<index;k++){
+        printf("%d ",lcss[k]);
+    }
    /* L[m][n] contains length of LCS for X[0..n-1] and Y[0..m-1] */
-   return L[m][n];
+  // return L[m][n];
 }
 int main()
     {
@@ -57,8 +82,8 @@ scanf("%d",&P[i]);
 
  /*char *T = "ABABDABACDABABCABAB";
    char *P = "ABABCABAB";*/
-int l=lcs(T,P,m,n); 
-printf("%d",l);
+lcs(T,P,m,n); 
+//printf("%d",l);
 return 0;
     	
 }
