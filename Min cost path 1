@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <limits.h>
+int m,n;
+int minn(int a, int b)
+{
+    return (a < b)? a : b;
+}
+int min(int x, int y, int z)
+{
+   return minn(minn(x, y), z);
+}
+
+int mincost(int cost[m][n],int m,int n)
+{
+ // Create a table to store results of subproblems
+       if (n < 0 || m < 0)
+      return INT_MAX;
+   else if (m == 0 && n == 0)
+      return cost[m][n];
+   else
+      return cost[m][n] + min( mincost(cost, m-1, n-1),
+                               mincost(cost, m-1, n), 
+                               mincost(cost, m, n-1) );
+} 
+
+int main()
+    {
+int TT,i,j;
+ 
+   scanf("%d",&TT);
+    while(TT--){
+  scanf("%d %d",&m,&n);       
+ int P[m][n];
+for(i=0;i<m;i++)
+for(j=0;j<m;j++)
+scanf("%d",&P[i][j]);
+
+
+printf("%d \n",mincost(P,m,n)); 
+    }
+return 0;
+    	
+}
